@@ -60,10 +60,10 @@ RUN sed -i "s/# gzip/gzip/g" /etc/nginx/nginx.conf
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir /etc/service/uwsgi
-ADD uwsgi.sh /etc/service/uwsgi/run
+ADD uwsgi_init /etc/service/uwsgi/run
 RUN chmod 755 /etc/service/uwsgi/run
 RUN mkdir /etc/service/nginx
-ADD nginx.sh /etc/service/nginx/run
+ADD nginx_init /etc/service/nginx/run
 RUN chmod 755 /etc/service/nginx/run
 
 # Init script to setup web2py
