@@ -73,7 +73,11 @@ RUN chmod 755 /etc/my_init.d/web2py_setup.sh
 EXPOSE 80
 
 WORKDIR /home/www-data/web2py
-CMD /etc/service/uwsgi/run
-CMD /etc/service/nginx/run
+RUN /etc/service/uwsgi/run
+RUN /etc/service/nginx/run
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8  
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
